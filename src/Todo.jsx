@@ -99,6 +99,13 @@ function Todo() {
         }
     };
 
+    const deleteAll = () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete all tasks?");
+        if (confirmDelete) {
+            setTodos([]);
+        }
+    };
+
     const selectAll = () => {
         const updatedTodos = todos.map((t) => ({ ...t, completed: true }));
         setTodos(updatedTodos);
@@ -145,6 +152,7 @@ function Todo() {
                             placeholder='Enter To do...'
                             onChange={handleChange}
                             value={todo}
+                            style={{ color: '#666' }}
                         />
                         <div className='date-time-container mt-3'>
                             <input
@@ -152,12 +160,14 @@ function Todo() {
                                 type="date"
                                 onChange={handleDateChange}
                                 value={date}
+                                style={{ color: '#666' }}
                             />
                             <input
                                 className='enterTime form-control ml-2 timeCustom'
                                 type="time"
                                 onChange={handleTimeChange}
                                 value={time}
+                                style={{ color: '#666' }}
                             />
                         </div>
                         <button className='btn btn-custom mt-2 ml-2'>
@@ -209,13 +219,13 @@ function Todo() {
                                     className="mr-2"
                                 />
                                 <div className="todo-info">
-                                    <p className={`todo ${t.completed ? 'completed' : ''}`}>
+                                    <p className={`todo ${t.completed ? 'completed' : ''}`} style={{ color: '#666' }}>
                                         {t.todo}
                                     </p>
-                                    <small className="text-muted small-text">
+                                    <small className="text-muted small-text" style={{ color: '#666' }}>
                                         Created on: {t.timestamp}
                                     </small>
-                                    <small className="text-muted small-text">
+                                    <small className="text-muted small-text" style={{ color: '#666' }}>
                                         Due: {t.date} {t.time}
                                     </small>
                                 </div>
@@ -244,7 +254,7 @@ function Todo() {
                         <button className='btn btn-custom mx-1' onClick={unselectAll} type="button">
                             Mark All Undone
                         </button>
-                        <button className='btn btn-danger mx-1' onClick={deleteCompleted} type="button">
+                        <button className='btn btn-danger mx-1' onClick={deleteAll} type="button">
                             Delete All
                         </button>
                     </div>
@@ -255,11 +265,11 @@ function Todo() {
             {showModal && (
                 <div className="modal fade show" style={{ display: 'block' }}>
                     <div className="modal-dialog">
-                        <div className="modal-content" style={{ backgroundColor: '#9D71BC', color: '#fff' }}>
+                        <div className="modal-content" style={{ backgroundColor: '#F8FFFE', color: '#666' }}>
                             <div className="modal-header">
                                 <h5 className="modal-title">Edit Task</h5>
-                                <button type="button" className="close" onClick={() => setShowModal(false)} style={{ marginLeft: 'auto' }}>
-                                    <span>&times;</span>
+                                <button type="button" className="btn mt-3" onClick={() => setShowModal(false)} style={{ backgroundColor: '#5e1b89', color: '#fff', marginLeft: 'auto', border: 'none' }}>
+                                    <span style={{ color: '#fff', fontSize: '1.5em' }}>&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
@@ -271,6 +281,7 @@ function Todo() {
                                             className="form-control"
                                             value={todo}
                                             onChange={handleChange}
+                                            style={{ color: '#666' }}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -280,6 +291,7 @@ function Todo() {
                                             className="form-control"
                                             value={date}
                                             onChange={handleDateChange}
+                                            style={{ color: '#666' }}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -289,6 +301,7 @@ function Todo() {
                                             className="form-control"
                                             value={time}
                                             onChange={handleTimeChange}
+                                            style={{ color: '#666' }}
                                         />
                                     </div>
                                     <button type="submit" className="btn mt-3" style={{ backgroundColor: '#5e1b89', color: '#fff' }}>

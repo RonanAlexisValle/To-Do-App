@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+body {
+  color: #666;
+}
 
 /* container*/
 .todo-container {
