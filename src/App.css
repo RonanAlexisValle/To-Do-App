@@ -1,0 +1,185 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+/* container*/
+.todo-container {
+  flex: auto;
+  width: 100%;
+  max-width: 900px; 
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: #9D71BC;
+  outline: 2px solid #808088; 
+  outline-offset: 2px;
+}
+
+/* text box of task */
+.enterTodo{
+  height: 50px;
+  width: 700px;
+  font-size: large;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.date-time-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between inputs as needed */
+}
+
+.dateCustom, .timeCustom {
+  height: 50px;
+  width: 345px;
+  font-size: large;
+}
+
+
+/* div form */
+.form-group .btn {
+  margin-left: 10px;
+  margin-top: 0; 
+}
+
+/* CSS for displaying the task and buttons */
+.display{                 
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.todo {
+  font-size: 25px; 
+  margin: 0; 
+  line-height: 1.5; 
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 25px;
+}
+
+.delEditButtons {
+  display: flex;
+  gap: 1px;
+}
+
+.editButton {
+  background-color: #5e1b89;
+  color: white; /* Ensure the text is readable */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color:#9D71BC;
+  border-color: #5e1b89;
+  color: white; /* Ensure the text is readable */
+}
+
+.editButton, .deleteButton {
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.small-text {
+  margin-left: 5px;
+  font-size: 0.8rem; /* Adjust the font size as needed */
+}
+
+
+/* checkbox part */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  transform: scale(1); 
+  margin-right: 10px; 
+}
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.Datetime {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Define the custom button color */
+.btn-custom {
+  background-color: #FF7F4D;
+  border-color: #FF7F4D;
+  color: white; /* Ensure the text is readable */
+}
+
+.btn-custom:hover {
+  background-color: #D63D1A; /* Darker shade for hover state */
+  border-color: #D63D1A;
+  color: white; /* Ensure the text is readable */
+}
+
+
+.form-group.lowerButtons {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  gap: 10px;               
+  padding: 10px;           
+}
+
+.lowerButtons .btn {
+  flex: 1;
+  justify-content: space-between;
+  margin: 0 5px; 
+}
+
+.filterButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterButtons .btn {
+  flex: 1;
+  margin: 0 5px; 
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+/* Additional styles for grayscale and light overlay */
+.no-tasks img {
+  filter: grayscale(100%);
+  opacity: 0.3; /* Adjust the opacity to lighten the image */
+}
+
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
