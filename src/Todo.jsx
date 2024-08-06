@@ -135,7 +135,7 @@ function Todo() {
 
     return (
         <>
-            <div className='container text-center todo-container'>
+            <div className={`container text-center todo-container ${showModal ? 'blur-background' : ''}`}>
                 <h1 className='text-light mt-3'>To Do App</h1>
                 <form onSubmit={handleSubmit} className='form-inline'>
                     <div className='form-group'>

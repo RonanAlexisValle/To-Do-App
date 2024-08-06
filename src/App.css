@@ -69,6 +69,13 @@
   gap: 1px;
 }
 
+/*for modal's blur background*/
+.blur-background {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
+
+
 .editButton {
   background-color: #5e1b89;
   color: white; /* Ensure the text is readable */
