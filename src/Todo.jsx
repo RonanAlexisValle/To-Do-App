@@ -17,6 +17,7 @@ function Todo() {
     const [filter, setFilter] = useState("All");
     const [activeCount, setActiveCount] = useState(0);
     const [finishedCount, setFinishedCount] = useState(0);
+    const [showModal, setShowModal] = useState(false); // Modal visibility state
 
     useEffect(() => {
         document.title = "My Todo App";
@@ -50,6 +51,7 @@ function Todo() {
             setTodo("");
             setDate("");
             setTime("");
+            setShowModal(false); // Close modal after editing
         } else {
             const now = new Date();
             const timestamp = now.toLocaleString();
@@ -74,6 +76,7 @@ function Todo() {
         setDate(editTodo.date);
         setTime(editTodo.time);
         setEditId(id);
+        setShowModal(true); // Show modal on edit
     };
 
     const toggleComplete = (id) => {
@@ -156,7 +159,7 @@ function Todo() {
                                 onChange={handleTimeChange}
                                 value={time}
                             />
-                        </div>  
+                        </div>
                         <button className='btn btn-custom mt-2 ml-2'>
                             {editId ? "Update Todo" : "Add Todo"}
                         </button>
@@ -247,6 +250,56 @@ function Todo() {
                     </div>
                 )}
             </div>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="modal fade show" style={{ display: 'block' }}>
+                    <div className="modal-dialog">
+                        <div className="modal-content" style={{ backgroundColor: '#9D71BC', color: '#fff' }}>
+                            <div className="modal-header">
+                                <h5 className="modal-title">Edit Task</h5>
+                                <button type="button" className="close" onClick={() => setShowModal(false)} style={{ marginLeft: 'auto' }}>
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="form-group">
+                                        <label>Task</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            value={todo}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Date</label>
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            value={date}
+                                            onChange={handleDateChange}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Time</label>
+                                        <input
+                                            type="time"
+                                            className="form-control"
+                                            value={time}
+                                            onChange={handleTimeChange}
+                                        />
+                                    </div>
+                                    <button type="submit" className="btn mt-3" style={{ backgroundColor: '#5e1b89', color: '#fff' }}>
+                                        Save changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
